@@ -1,0 +1,22 @@
+
+<% unless flash[:errors].nil? %>
+<ul>
+  <% flash[:errors].each do |error| %>
+    <li><%=  error  %></li> 
+  <% end %>
+</ul>
+<% end %>
+
+<form id="user-form" action="<%= users_url %>" method="post">
+
+  <input type="hidden" name="_method" value="POST" > 
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="user-form-email">Email</label> 
+  <input type="text" name="user[email]" value="">
+
+  <label for="user-form-pass">Password</label>
+  <input type="password" name="user[password]" value="">
+
+
+  <input type="submit" value="Create!">
+</form>
